@@ -1,1 +1,5 @@
-# django-project
+Склонирйте проект набрав команду "git clone <ссылка на репозиторий>"
+Установите зависимости набрав команду "pip install -r requiremets.txt"
+Создайте образы набрав команду в терминале "docker-compose build"
+Создайте контейнеры набрав команду в терминале "docker-compose up"
+Проведите миграции набрав в терминале "docker-compose run app alembic revision --autogenerate -m "New Migration" и "docker-compose run app alembic upgrade head"
