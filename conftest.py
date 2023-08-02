@@ -2,7 +2,6 @@ import pytest
 from django.contrib.auth import get_user_model
 
 
-
 @pytest.fixture
 def api_client():
     from rest_framework.test import APIClient
@@ -22,4 +21,5 @@ def user():
     return get_user_model().objects.create_user(
         email='user@example.com',
         password='testpass123',
+        full_name='Test Name'
     )

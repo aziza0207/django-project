@@ -22,11 +22,18 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(max_length=255, unique=True)
-    full_name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255, unique=True, verbose_name="Почта")
+    full_name = models.CharField(max_length=255, verbose_name="Полное Имя")
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+    def __str__(self):
+        return self.full_name
+
+    class Meta:
+        verbose_name = "Пользователь"
+        verbose_name_plural = "Пользователи"
