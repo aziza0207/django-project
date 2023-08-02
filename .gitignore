@@ -1,5 +1,0 @@
-.env
-.pytest_cache
-venv
-.idea
-__pycache__/
