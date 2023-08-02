@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from rest_framework import routers
 from .views import AddToWishListView, RemoveFromWishListView, UsersWishList
 
@@ -8,5 +8,10 @@ router.register(r'wishlist', UsersWishList, basename='wishlist')
 
 app_name = 'user'
 
-urlpatterns = [path('add-product/<int:pk>', AddToWishListView.as_view(), name='add-product'),
-               path('remove-product/<int:pk>', RemoveFromWishListView.as_view(), name='remove-product')]
+urlpatterns = [path('add-product/<int:pk>', AddToWishListView.as_view(),
+                    name='add-product'),
+               path('remove-product/<int:pk>', RemoveFromWishListView.as_view(),
+                    name='remove-product'),
+               path('', include(router.urls))
+
+               ]

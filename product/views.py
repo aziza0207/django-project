@@ -36,6 +36,7 @@ class RemoveFromWishListView(generics.GenericAPIView):
 
 
 class UsersWishList(viewsets.ReadOnlyModelViewSet):
+    permission_classes = (IsAuthenticated,)
     serializer_class = ProductSerializer
 
     def get_queryset(self):
