@@ -1,10 +1,23 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext as _
 
 User = get_user_model()
 
 
+class Category(models.Model):
+    title = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+
 class Product(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Категория")
     image = models.ImageField(null=True, blank=True, verbose_name="Изображение")
     title = models.CharField(max_length=50, verbose_name="Название")
     description = models.CharField(max_length=255, verbose_name="Описание")

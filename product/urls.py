@@ -6,12 +6,12 @@ from .views import AddToWishListView, RemoveFromWishListView, UsersWishList
 router = routers.DefaultRouter()
 router.register(r'wishlist', UsersWishList, basename='wishlist')
 
-app_name = 'user'
+app_name = 'product'
 
 urlpatterns = [path('add-product/<int:pk>', AddToWishListView.as_view(),
                     name='add-product'),
                path('remove-product/<int:pk>', RemoveFromWishListView.as_view(),
                     name='remove-product'),
-               path('', include(router.urls))
+               path('list/', include(router.urls))
 
                ]
