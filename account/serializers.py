@@ -5,14 +5,11 @@ from rest_framework import serializers, status
 
 
 class UserSerializer(serializers.ModelSerializer):
-    confirm_password = serializers.CharField(required=True, write_only=True)
-
     class Meta:
         model = get_user_model()
         fields = ['email',
                   'full_name',
-                  'password',
-                  'confirm_password']
+                  'password']
         extra_kwargs = {'password': {'write_only': True, 'min_length': 5,
                                      'required': True},
                         'full_name': {'min_length': 2}}
@@ -28,16 +25,6 @@ class UserSerializer(serializers.ModelSerializer):
             user.set_password(password)
             user.save()
         return user
-
-    def validate(self, attrs):
-        confirm_password = attrs.pop('confirm_password')
-        password = attrs.get('password')
-        if not password == confirm_password:
-            raise serializers.ValidationError(
-                detail="Passwords does not match",
-                code=status.HTTP_400_BAD_REQUEST
-            )
-        return attrs
 
 
 class AuthTokenSerializer(serializers.Serializer):
