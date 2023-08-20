@@ -9,12 +9,13 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    category = serializers.StringRelatedField()
 
     class Meta:
         model = Product
-        fields = ('image',
-                  'category',
-                  'title',
-                  'description',
-                  'price')
+
+        fields = (
+            'id',
+            'image',
+            'title',
+            'description',
+            'price')

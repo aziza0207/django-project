@@ -46,3 +46,8 @@ class UsersWishList(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         return Product.objects.filter(wishlist=self.request.user.id)
+
+
+class ProductListView(viewsets.ReadOnlyModelViewSet):
+    serializer_class = ProductSerializer
+    queryset = Product.objects.all()
