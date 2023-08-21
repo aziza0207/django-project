@@ -11,12 +11,12 @@ admin.site.register(Category, CategoryAdmin)
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title',
+    list_display = ['name',
                     'category',
-                    'image',
-                    'description',
+                    'url',
+                    'desc',
                     'price']
-    search_fields = ['title', 'category']
+    search_fields = ['name', 'category']
     list_filter = ['category']
 
     ordering = ['id']
