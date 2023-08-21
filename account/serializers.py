@@ -7,7 +7,8 @@ from rest_framework import serializers, status
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ['email',
+        fields = ['image',
+                  'email',
                   'full_name',
                   'password']
         extra_kwargs = {'password': {'write_only': True, 'min_length': 5,
@@ -46,5 +47,3 @@ class AuthTokenSerializer(serializers.Serializer):
 
         attrs['user'] = user
         return attrs
-
-
