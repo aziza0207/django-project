@@ -14,4 +14,4 @@ urlpatterns = [path('category/', CategoryListView.as_view(), name='category'),
                     name='add-product'),
                path('remove-product/<int:pk>', RemoveFromWishListView.as_view(),
                     name='remove-product'),
-               path('product/', include(router.urls))]
+               path('', include(router.urls))]
