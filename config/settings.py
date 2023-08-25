@@ -136,6 +136,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
 CORS_ALLOW_ALL_ORIGINS = True
-CSRF_TRUSTED_ORIGINS = ['http://*', "https://*"]
+CSRF_TRUSTED_ORIGINS = ['https://team3back.sanarip.org/' ]
 
-
+CORS_ORIGIN_WHITELIST = [
+    'https://team3back.sanarip.org/'
+]
