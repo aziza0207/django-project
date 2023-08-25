@@ -137,7 +137,7 @@ MEDIA_URL = '/media/'
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGINS_WHITELIST = ["*"]
-
+CSRF_TRUSTED_ORIGINS = ['https://team3back.sanarip.org/']
 
 
 
