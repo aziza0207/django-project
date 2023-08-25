@@ -141,7 +141,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost", "https://team3back.sanarip.org", '*.sanarip.org']
+CSRF_TRUSTED_ORIGINS = ["http://localhost", "https://team3back.sanarip.org"]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
