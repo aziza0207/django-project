@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from environ import Env
+from requests.utils import default_headers
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,11 +49,12 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
-    'django.middleware.common.CommonMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -136,8 +138,17 @@ MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ORIGINS_WHITELIST = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://team3back.sanarip.org/']
 
+CORS_ALLOW_CREDENTIALS = True
 
-
+CSRF_TRUSTED_ORIGINS = ["http://localhost", "https://team3back.sanarip.org/"]
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+CORS_ALLOW_METHODS = (
+    "GET",
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
