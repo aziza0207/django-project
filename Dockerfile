@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD bash -c "python manage.py collectstatic --noinput && python manage.py migrate --noinput gunicorn config.wsgi -b 0.0.0.0:8003 -w 3"
+CMD bash -c "python manage.py collectstatic --noinput && python manage.py migrate && gunicorn config.wsgi -b 0.0.0.0:8003 -w 3"
