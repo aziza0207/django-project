@@ -135,10 +135,8 @@ REST_FRAMEWORK = {
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
-# CSRF_TRUSTED_ORIGINS = [
-#     'http://localhost:8003',
-#     'https://team3back.sanarip.org/',
-# ]
+CORS_ALLOW_ALL_ORIGINS = True
+
 #
 # CORS_ORIGIN_WHITELIST = [
 #     'http://localhost:8003',
